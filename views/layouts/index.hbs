@@ -1,0 +1,28 @@
+{{> header}}
+
+<section>
+  <div class="container my-5">
+    <a href="/articles/new" class="btn btn-success">New Article</a>
+    <h1 class="font-weight-bold display-4 text-center mb-4">All Articles</h1>
+    {{#if isEmpty}}
+    <p class="text-center">*No articles found*</p>
+    {{else}}
+    {{#each articles}}
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title font-weight-bold"><a class="text-dark" href="/articles/{{this.slug}}">{{this.title}}</a>
+        </h3>
+        <p class="card-text">{{this.description}}</p>
+        <a href="/articles/{{this.slug}}" class="btn btn-primary">Read more..</a>
+        <a href="/articles/edit/{{this._id}}" class="btn btn-info">Edit</a>
+        <form action="/articles/{{this._id}}?_method=DELETE" class="d-inline" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+    {{/if}}
+  </div>
+</section>
+
+{{> footer}}

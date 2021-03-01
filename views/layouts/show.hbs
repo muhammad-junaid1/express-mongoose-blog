@@ -1,0 +1,22 @@
+{{> header}}
+
+<section>
+    <div class="container mt-5">
+        <header>
+            <small class="text-info">{{createdAt}}</small>
+            <h1 class="font-weight-bolder border-bottom">{{article.title}}</h1>
+        </header>
+        <div class="mt-3">
+            <a href="/" class="btn btn-success">All articles</a>
+            <a href="/articles/edit/{{article._id}}" class="btn btn-primary">Edit</a>
+        </div>
+        <div class="mt-3">
+            <p class="lead text-secondary">{{article.description}}</p>
+        </div>
+        <div class="container mt-5">
+            {{{article.sanitizedHTML}}}
+        </div>
+    </div>
+</section>
+
+{{> footer}}
